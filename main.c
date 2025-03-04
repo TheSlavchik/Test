@@ -1,14 +1,22 @@
-#include "equation.h"
-#include "integral.h"
+#include "equation/equation.h"
+#include "integral/integral.h"
 #include "list/linked_list.h"
 #include "stack/stack.h"
+#include <assert.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+void test1()
+{
+    double *arr = solve_equation(1, 0, -1);
+
+    assert(arr[0] == 2);
+}
+
 int main()
 {
-    /*Zadanie 2
+    /*Zadanie 1
 
     double *arr = solve_equation(1,0,-1);
 
@@ -16,6 +24,15 @@ int main()
     {
         printf("%lf", arr[i]);
     }*/
+
+    /*Zadaine 2
+    double sinus(double x)
+    {
+        return sin(x);
+    }
+
+    printf("%lf \n", integral(sinus, 1, 2, 10000));
+    */
 
     /*Zadanie 3
     List *list = make_list();
@@ -46,6 +63,8 @@ int main()
 
     printf("%d \n", pop(stack));
     printf("%d \n", pop(stack));*/
+
+    test1();
 
     return 0;
 }

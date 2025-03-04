@@ -18,20 +18,19 @@ main.o: main.c
 
 # [INTEGRAL]
 
-integral.o: integral.c integral.h
-	gcc -g -c integral.c -o integral.o 
+integral.o: integral/integral.c integral/integral.h
+	gcc -g -c integral/integral.c -o integral.o 
 
 integral.a: integral.o
 	ar rc integral.a integral.o
-
 
 integral_test: main.o integral.a
 	gcc -g -static -o integral_test main.o integral.a -lm
 
 # [EQUATION]
 
-equation.o: equation.c equation.h
-	gcc -g -c equation.c -o equation.o 
+equation.o: equation/equation.c equation/equation.h
+	gcc -g -c equation/equation.c -o equation.o 
 
 equation.a: equation.o
 	ar rc equation.a equation.o
@@ -63,11 +62,14 @@ stack_test: main.o stack.a
 
 # [TESTS]
 
-test1: integral_test
-	./integral_test
-
-test2: equation_test
+test: equation_test
 	./equation_test
+
+test1: equation_test
+	./equation_test
+
+test2: integral_test
+	./integral_test
 
 test3: list_test
 	./list_test
